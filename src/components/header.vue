@@ -9,6 +9,7 @@
 				<Fold />
 			</el-icon>
 		</div>
+		<!-- <div :class="logoClass" @mousedown.native="handleMouseDown()" @mousemove.native="handleMouseMove()">程序版本管理系统</div> -->
 		<div class="logo">程序版本管理系统</div>
 		<div class="header-right">
 			<div class="header-user-con">
@@ -24,7 +25,7 @@
 				<!-- 用户名下拉菜单 -->
 				<el-dropdown class="user-name" trigger="click" @command="handleCommand">
 					<span class="el-dropdown-link">
-						{{ username }}
+						{{ username }} 
 						<el-icon class="el-icon--right">
 							<arrow-down />
 						</el-icon>
@@ -49,6 +50,7 @@ import { useRouter } from 'vue-router';
 import imgurl from '../assets/img/img.jpg';
 import SvgIcon from "./svgIcon.vue"
 import { ElMessage, ElMessageBox } from 'element-plus';
+import {Message, createMessage, MessageData } from '../utils/message';
 
 const username: string | null = localStorage.getItem('ms_username');
 const message: number = 2;
@@ -61,6 +63,15 @@ const collapseChage = () => {
 
 const fullScreen = ref('full_screen');
 const shutdown = ref('shutdown');
+// const drag = ref('drag');
+/*
+float: left;
+	width: 75%;
+	line-height: 40px;
+	-webkit-app-region: v-bind('drag');
+
+*/ 
+// const logoClass = ref("{float:left;line-height:40px;-webkit-app-region:drag;}");
 
 onMounted(() => {
 	if (document.body.clientWidth < 1500) {
@@ -68,15 +79,35 @@ onMounted(() => {
 	}
 });
 
+// // 鼠标移动窗体
+// const handleMouseDown = () => {
+// 	drag.value = 'drag';
+// 	console.log('header drag down');
+// 	logoClass.value = "{float:left;line-height:40px;-webkit-app-region:drag;}";
+// }
+
+// // 鼠标移动停止
+// const handleMouseMove = () => {
+// 	drag.value = 'null';
+// 	console.log('header drag move'); 
+// 	logoClass.value = "{float:left;line-height:40px;}";
+// }
+
 const isFullScreen = ref(false);
 
 // 全屏或者恢复
 const handleScreen = () => {
 	// 如果对象存在则发送全屏
 	isFullScreen.value = !isFullScreen.value;
-	astilectron.sendMessage({ name: 'screen' }, function (message: any) {
-		console.log('回传消息', message);
-	});
+	// astilectron.sendMessage({ name: 'screen' }, function (message: any) {
+	// 	console.log('回传消息', message);
+	// });
+
+	Message.send(createMessage('screen'), (msg : MessageData) => {
+		console.log('screen', msg.payload);
+		
+	})
+
 	if (isFullScreen.value) {
 		fullScreen.value = 'screen';
 	} else {

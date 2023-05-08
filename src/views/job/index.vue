@@ -40,7 +40,7 @@
 		</div>
 
 		<!-- 编辑弹出框 -->
-		<el-dialog :title="editTitle" top="5px" v-model="editVisible" width="35%" @open="openDialog">
+		<el-dialog :title="editTitle" top="2px" v-model="editVisible" width="35%" @open="openDialog">
 			<el-form label-width="85px">
 				<el-form-item label="任务名称">
 					<el-input v-model="form.name" />
@@ -66,7 +66,7 @@
 				<el-form-item label="参数域">
 					<el-select v-model="form.area_id" placeholder="请选择">
 						<el-option v-for="item in areaOpt" :key="item.id" :label="item.name" :value="item.id">
-						</el-option>
+						</el-option> 
 					</el-select>
 				</el-form-item>
 				<el-form-item label="备注">

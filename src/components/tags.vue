@@ -52,8 +52,6 @@ const closeTags = (index: number) => {
 
 // 设置标签
 const setTags = (route: any) => {
-	console.log("setTags", JSON.stringify(route));
-
 	const isExist = tags.list.some(item => {
 		return item.path === route.fullPath;
 	});
