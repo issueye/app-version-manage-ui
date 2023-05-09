@@ -28,6 +28,14 @@ const routes: RouteRecordRaw[] = [
                 component: () => import(/* webpackChunkName: "table" */ '../views/job/index.vue'),
             },
             {
+                path: '/repo',
+                name: 'repo',
+                meta: {
+                    title: '仓库',
+                },
+                component: () => import(/* webpackChunkName: "table" */ '../views/repo/index.vue'),
+            },
+            {
                 path: '/charts',
                 name: 'basecharts',
                 meta: {

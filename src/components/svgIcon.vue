@@ -5,7 +5,7 @@
         <use :xlink:href="iconName" />
     </svg>
 </template>
-  
+
 <script lang="ts">
 import { defineComponent, computed } from "vue";
 

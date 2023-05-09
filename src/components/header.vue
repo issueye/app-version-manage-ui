@@ -169,9 +169,9 @@ const handleCommand = (command: string) => {
 	margin-left: 10px;
 }
 
-.svg-box:hover {
-	width: 27px;
-	height: 27px;
+.svg-box:hover { 
+	width: 22px;
+	height: 22px;
 }
 
 .header .logo {

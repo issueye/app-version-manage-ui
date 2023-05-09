@@ -49,14 +49,14 @@ const items = [
         title: '系统首页',
     },
     {
-        icon: 'DocumentCopy',
-        index: '/tabs',
-        title: 'tab选项卡',
-    },
-    {
-        icon: 'DocumentCopy',
+        icon: 'List',
         index: '/job',
         title: '任务管理',
+    },
+    {
+        icon: 'Files',
+        index: '/repo',
+        title: '仓库管理',
     },
     {
         icon: 'Edit',
